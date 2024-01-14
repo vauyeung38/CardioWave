@@ -16,7 +16,7 @@ from sklearn.decomposition import FactorAnalysis as FA
 from sklearn import preprocessing
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
-from scipy.stats import median_absolute_deviation
+from scipy.stats import median_abs_deviation
 import pandas as pd
 import numpy as np
 from cdwave import data
@@ -219,7 +219,7 @@ def normalise_by_negctrl(df: pd.DataFrame,
             samples = []
             ps = standardisers[method]
             if method == 'smdmad':
-                mad = median_absolute_deviation(control_samples[ps])
+                mad = median_abs_deviation(control_samples[ps])
             median = control_samples[ps].agg('median')
             for _, item in pdf.iterrows():
                 if method == 'sm':
